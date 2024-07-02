@@ -42,9 +42,9 @@ def Tobs():
     data = sql.tobs()
     return(jsonify(data))
 
-@app.route("/api/Start_End")
-def Start_End():
-    data = sql.start_end()
+@app.route("/api/Start_End/<start_date>/<end_date>")
+def Start_End(start_date, end_date):
+    data = sql.start_end(start_date, end_date)
     return(jsonify(data))
 
 # Run app

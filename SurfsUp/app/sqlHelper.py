@@ -80,9 +80,9 @@ class SQLHelper():
                 FROM
                     MEASUREMENT
                 WHERE
-                    date >= {start_date}
+                    date >= '{start_date}'
                     AND
-                    date <= {end_date}
+                    date <= '{end_date}'
                 ;
                 """
         df = pd.read_sql(text(query), con = self.engine)
