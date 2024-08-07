@@ -25,19 +25,19 @@ class SQLHelper():
 
     # Database queries
     def precipitation(self):
-        query = """
-                SELECT 
-                    PRCP AS PERCIPITATION, 
-                    DATE, 
-                    STATION
-                FROM 
-                    MEASUREMENT 
-                WHERE 
-                    DATE >= '2016-08-23' 
-                ORDER BY 
-                    DATE ASC
-                ;
-                    """
+        query = query = """
+                SELECT
+                    date,
+                    station,
+                    prcp
+                FROM
+                    measurement
+                WHERE
+                    date >= '2016-08-23'
+                ORDER BY
+                    date ASC;
+            """
+
         df = pd.read_sql(text(query), con = self.engine)
         data = df.to_dict(orient="records")
         return data
@@ -72,7 +72,8 @@ class SQLHelper():
         return data
 
     def start_end(self, start_date, end_date):
-        query = """
+        #use f-string to make dynamic input variables
+        query = f"""
                 SELECT
                     MIN(tobs) as Min_Temp,
                     MAX(tobs) as Max_Temp,

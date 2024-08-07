@@ -23,7 +23,7 @@ def welcome():
         f"/api/Precipitation<br/>"
         f"/api/Station<br/>"
         f"/api/Tobs<br/>"
-        f"/api/Start_End/'2012-05-30'/'2017-05-30'<br/>"
+        f"/api/Start_End/2012-05-30/2017-05-30<br/>"
     )
 
 # Link SQLHelper queries to route
